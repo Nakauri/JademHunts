@@ -196,6 +196,10 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .review-card::before {
@@ -292,40 +296,31 @@
         }
 
         .review-link {
+            pointer-events: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             color: var(--accent-blue);
-            text-decoration: none;
             font-size: 14px;
             font-weight: 500;
             transition: gap 0.2s ease;
-        }
-
-        .review-link:hover {
-            gap: 12px;
-        }
-
-        .review-link.disabled {
-            color: var(--text-muted);
-            cursor: not-allowed;
-            opacity: 0.5;
-        }
-
-        .review-link.disabled:hover {
-            gap: 8px;
         }
 
         .review-link svg {
             transition: transform 0.2s ease;
         }
 
-        .review-link:hover svg {
+        .review-card:hover .review-link {
+            gap: 12px;
+        }
+
+        .review-card:hover .review-link svg {
             transform: translateX(4px);
         }
 
-        .review-link.disabled:hover svg {
-            transform: none;
+        .review-link.disabled {
+            color: var(--text-muted);
+            opacity: 0.5;
         }
 
         /* Provisional scores styling */
@@ -460,12 +455,47 @@
         <div class="container">
             <div class="reviews-grid">
                 
+                <!-- Armored Core 6 -->
+                <a href="https://nakauri.github.io/JademHunts/armoredcore6.html" class="review-card">
+                    <div class="review-header">
+                        <div class="review-info">
+                            <h3 class="review-title">Armored Core 6: Fires of Rubicon</h3>
+                            <p class="review-subtitle">Mech combat where keyboard and mouse actually works</p>
+                        </div>
+                    </div>
+                    <div class="review-scores">
+                        <div class="review-score">
+                            <div class="score-number text-green">9</div>
+                            <div class="score-label">H</div>
+                        </div>
+                        <div class="review-score">
+                            <div class="score-number text-blue">8</div>
+                            <div class="score-label">U</div>
+                        </div>
+                        <div class="review-score">
+                            <div class="score-number text-yellow">6</div>
+                            <div class="score-label">N</div>
+                        </div>
+                        <div class="review-score">
+                            <div class="score-number text-green">9</div>
+                            <div class="score-label">T</div>
+                        </div>
+                    </div>
+                    <span class="review-link">
+                        Read Full Review
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </span>
+                </a>
+                
                 <!-- Vintage Story -->
-                <div class="review-card">
+                <a href="https://nakauri.github.io/JademHunts/vintagestory.html" class="review-card">
                     <div class="review-header">
                         <div class="review-info">
                             <h3 class="review-title">Vintage Story</h3>
-                            <p class="review-subtitle">A voxel survival game that respects your problem solving skills</p>
+                            <p class="review-subtitle">Survival through actual knowledge, not quest markers</p>
                         </div>
                     </div>
                     <div class="review-scores">
@@ -486,17 +516,17 @@
                             <div class="score-label">T</div>
                         </div>
                     </div>
-                    <a href="https://nakauri.github.io/JademHunts/vintagestory.html" class="review-link">
+                    <span class="review-link">
                         Read Full Review
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"/>
                             <polyline points="12 5 19 12 12 19"/>
                         </svg>
-                    </a>
-                </div>
+                    </span>
+                </a>
 
                 <!-- World of Warcraft: The War Within (Hunter) -->
-                <div class="review-card">
+                <a href="https://nakauri.github.io/JademHunts/warcraft.html" class="review-card">
                     <div class="review-header">
                         <div class="review-info">
                             <h3 class="review-title">World of Warcraft: The War Within</h3>
@@ -521,21 +551,21 @@
                             <div class="score-label">T</div>
                         </div>
                     </div>
-                    <a href="https://nakauri.github.io/JademHunts/warcraft.html" class="review-link">
+                    <span class="review-link">
                         Read Full Review
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"/>
                             <polyline points="12 5 19 12 12 19"/>
                         </svg>
-                    </a>
-                </div>
+                    </span>
+                </a>
 
                 <!-- Dinoblade -->
                 <div class="review-card">
                     <div class="review-header">
                         <div class="review-info">
                             <h3 class="review-title">Dinoblade</h3>
-                            <p class="review-subtitle">Fast-paced dino combat with precision mechanics</p>
+                            <p class="review-subtitle">Fast paced dino combat with precision mechanics</p>
                         </div>
                         </div>
                     <div class="review-scores">
@@ -556,13 +586,13 @@
                             <div class="score-label">T</div>
                         </div>
                     </div>
-                    <a href="#" class="review-link disabled">
+                    <span class="review-link disabled">
                         Review in progress
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"/>
                             <polyline points="12 5 19 12 12 19"/>
                         </svg>
-                    </a>
+                    </span>
                 </div>
 
                 <!-- Wheel World -->
@@ -570,7 +600,7 @@
                     <div class="review-header">
                         <div class="review-info">
                             <h3 class="review-title">Wheel World</h3>
-                            <p class="review-subtitle">Physics-based traversal and puzzle solving</p>
+                            <p class="review-subtitle">Rolling through worlds with physics based movement</p>
                         </div>
                         </div>
                     <div class="review-scores">
@@ -591,13 +621,13 @@
                             <div class="score-label">T</div>
                         </div>
                     </div>
-                    <a href="#" class="review-link disabled">
+                    <span class="review-link disabled">
                         Review in progress
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"/>
                             <polyline points="12 5 19 12 12 19"/>
                         </svg>
-                    </a>
+                    </span>
                 </div>
 
                 <!-- Enshrouded -->
@@ -626,13 +656,13 @@
                             <div class="score-label">T</div>
                         </div>
                     </div>
-                    <a href="#" class="review-link disabled">
+                    <span class="review-link disabled">
                         Review in progress
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"/>
                             <polyline points="12 5 19 12 12 19"/>
                         </svg>
-                    </a>
+                    </span>
                 </div>
 
                 <!-- Kenshi -->
@@ -661,13 +691,13 @@
                             <div class="score-label">T</div>
                         </div>
                     </div>
-                    <a href="#" class="review-link disabled">
+                    <span class="review-link disabled">
                         Review in progress
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"/>
                             <polyline points="12 5 19 12 12 19"/>
                         </svg>
-                    </a>
+                    </span>
                 </div>
 
                 <!-- ARK: Survival Ascended -->
@@ -696,13 +726,13 @@
                             <div class="score-label">T</div>
                         </div>
                     </div>
-                    <a href="#" class="review-link disabled">
+                    <span class="review-link disabled">
                         Review in progress
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"/>
                             <polyline points="12 5 19 12 12 19"/>
                         </svg>
-                    </a>
+                    </span>
                 </div>
 
                 <!-- Monster Hunter World (Insect Glaive) -->
@@ -731,13 +761,13 @@
                             <div class="score-label">T</div>
                         </div>
                     </div>
-                    <a href="#" class="review-link disabled">
+                    <span class="review-link disabled">
                         Review in progress
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"/>
                             <polyline points="12 5 19 12 12 19"/>
                         </svg>
-                    </a>
+                    </span>
                 </div>
 
                 <!-- Dune: Awakening -->
@@ -766,13 +796,13 @@
                             <div class="score-label">T</div>
                         </div>
                     </div>
-                    <a href="#" class="review-link disabled">
+                    <span class="review-link disabled">
                         Review in progress
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"/>
                             <polyline points="12 5 19 12 12 19"/>
                         </svg>
-                    </a>
+                    </span>
                 </div>
 
                 <!-- Coming Soon Card -->
@@ -810,13 +840,13 @@
                             <div class="score-label">T</div>
                         </div>
                     </div>
-                    <a href="#" class="review-link disabled">
+                    <span class="review-link disabled">
                         Review in progress
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"/>
                             <polyline points="12 5 19 12 12 19"/>
                         </svg>
-                    </a>
+                    </span>
                 </div>
 
                 <!-- Palworld -->
@@ -845,13 +875,13 @@
                             <div class="score-label">T</div>
                         </div>
                     </div>
-                    <a href="#" class="review-link disabled">
+                    <span class="review-link disabled">
                         Review in progress
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"/>
                             <polyline points="12 5 19 12 12 19"/>
                         </svg>
-                    </a>
+                    </span>
                 </div>
 
                             </div>
