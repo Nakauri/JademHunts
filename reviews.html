@@ -173,9 +173,19 @@
         }
 
         .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 24px;
+        }
+
+        .review-card {
+            flex: 1 1 450px;
+            max-width: calc(50% - 12px);
+        }
+
+        /* Force coming soon card to always be last */
+        .review-card.coming-soon {
+            order: 9999;
         }
 
         .review-card {
@@ -333,6 +343,10 @@
             pointer-events: none;
         }
 
+        .review-score.provisional .score-number {
+            color: var(--text-muted) !important;
+        }
+
         .coming-soon {
             display: flex;
             align-items: center;
@@ -365,8 +379,9 @@
         .text-red { color: var(--accent-red); }
 
         @media (max-width: 768px) {
-            .reviews-grid {
-                grid-template-columns: 1fr;
+            .review-card {
+                max-width: 100%;
+                flex: 1 1 100%;
             }
             
             .page-title {
@@ -480,104 +495,34 @@
                     </a>
                 </div>
 
-                <!-- Pax Dei -->
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-info">
-                            <h3 class="review-title">Pax Dei</h3>
-                            <p class="review-subtitle">Medieval MMO with deep crafting systems</p>
-                        </div>
-                    </div>
-                    <div class="review-scores">
-                        <div class="review-score provisional" title="Provisional score - still being evaluated">
-                            <div class="score-number text-red">2</div>
-                            <div class="score-label">H</div>
-                        </div>
-                        <div class="review-score provisional" title="Provisional score - still being evaluated">
-                            <div class="score-number text-yellow">4</div>
-                            <div class="score-label">U</div>
-                        </div>
-                        <div class="review-score provisional" title="Provisional score - still being evaluated">
-                            <div class="score-number text-yellow">6</div>
-                            <div class="score-label">N</div>
-                        </div>
-                        <div class="review-score provisional" title="Provisional score - still being evaluated">
-                            <div class="score-number text-blue">7</div>
-                            <div class="score-label">T</div>
-                        </div>
-                    </div>
-                    <a href="#" class="review-link disabled">
-                        Review in progress
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"/>
-                            <polyline points="12 5 19 12 12 19"/>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Palworld -->
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-info">
-                            <h3 class="review-title">Palworld</h3>
-                            <p class="review-subtitle">Monster catching meets survival automation</p>
-                        </div>
-                        </div>
-                    <div class="review-scores">
-                        <div class="review-score provisional" title="Provisional score - still being evaluated">
-                            <div class="score-number text-yellow">4</div>
-                            <div class="score-label">H</div>
-                        </div>
-                        <div class="review-score provisional" title="Provisional score - still being evaluated">
-                            <div class="score-number text-yellow">5</div>
-                            <div class="score-label">U</div>
-                        </div>
-                        <div class="review-score provisional" title="Provisional score - still being evaluated">
-                            <div class="score-number text-red">3</div>
-                            <div class="score-label">N</div>
-                        </div>
-                        <div class="review-score provisional" title="Provisional score - still being evaluated">
-                            <div class="score-number text-red">2</div>
-                            <div class="score-label">T</div>
-                        </div>
-                    </div>
-                    <a href="#" class="review-link disabled">
-                        Review in progress
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"/>
-                            <polyline points="12 5 19 12 12 19"/>
-                        </svg>
-                    </a>
-                </div>
-
                 <!-- World of Warcraft: The War Within (Hunter) -->
                 <div class="review-card">
                     <div class="review-header">
                         <div class="review-info">
                             <h3 class="review-title">World of Warcraft: The War Within</h3>
-                            <p class="review-subtitle">Hunter class in current retail expansion</p>
+                            <p class="review-subtitle">Hunter class from Vanilla to The War Within</p>
                         </div>
                         </div>
                     <div class="review-scores">
-                        <div class="review-score provisional" title="Provisional score - still being evaluated">
+                        <div class="review-score">
                             <div class="score-number text-red">1</div>
                             <div class="score-label">H</div>
                         </div>
-                        <div class="review-score provisional" title="Provisional score - still being evaluated">
+                        <div class="review-score">
                             <div class="score-number text-yellow">5</div>
                             <div class="score-label">U</div>
                         </div>
-                        <div class="review-score provisional" title="Provisional score - still being evaluated">
+                        <div class="review-score">
                             <div class="score-number text-red">3</div>
                             <div class="score-label">N</div>
                         </div>
-                        <div class="review-score provisional" title="Provisional score - still being evaluated">
+                        <div class="review-score">
                             <div class="score-number text-yellow">4</div>
                             <div class="score-label">T</div>
                         </div>
                     </div>
-                    <a href="#" class="review-link disabled">
-                        Review in progress
+                    <a href="https://nakauri.github.io/JademHunts/warcraft.html" class="review-link">
+                        Read Full Review
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"/>
                             <polyline points="12 5 19 12 12 19"/>
@@ -838,7 +783,78 @@
                     </div>
                 </div>
 
-            </div>
+
+                <!-- Pax Dei -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-info">
+                            <h3 class="review-title">Pax Dei</h3>
+                            <p class="review-subtitle">Medieval MMO with deep crafting systems</p>
+                        </div>
+                    </div>
+                    <div class="review-scores">
+                        <div class="review-score provisional" title="Provisional score - still being evaluated">
+                            <div class="score-number text-red">2</div>
+                            <div class="score-label">H</div>
+                        </div>
+                        <div class="review-score provisional" title="Provisional score - still being evaluated">
+                            <div class="score-number text-yellow">4</div>
+                            <div class="score-label">U</div>
+                        </div>
+                        <div class="review-score provisional" title="Provisional score - still being evaluated">
+                            <div class="score-number text-yellow">6</div>
+                            <div class="score-label">N</div>
+                        </div>
+                        <div class="review-score provisional" title="Provisional score - still being evaluated">
+                            <div class="score-number text-blue">7</div>
+                            <div class="score-label">T</div>
+                        </div>
+                    </div>
+                    <a href="#" class="review-link disabled">
+                        Review in progress
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Palworld -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-info">
+                            <h3 class="review-title">Palworld</h3>
+                            <p class="review-subtitle">Monster catching meets survival automation</p>
+                        </div>
+                        </div>
+                    <div class="review-scores">
+                        <div class="review-score provisional" title="Provisional score - still being evaluated">
+                            <div class="score-number text-yellow">4</div>
+                            <div class="score-label">H</div>
+                        </div>
+                        <div class="review-score provisional" title="Provisional score - still being evaluated">
+                            <div class="score-number text-yellow">5</div>
+                            <div class="score-label">U</div>
+                        </div>
+                        <div class="review-score provisional" title="Provisional score - still being evaluated">
+                            <div class="score-number text-red">3</div>
+                            <div class="score-label">N</div>
+                        </div>
+                        <div class="review-score provisional" title="Provisional score - still being evaluated">
+                            <div class="score-number text-red">2</div>
+                            <div class="score-label">T</div>
+                        </div>
+                    </div>
+                    <a href="#" class="review-link disabled">
+                        Review in progress
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+
+                            </div>
         </div>
     </section>
 </body>
