@@ -51,14 +51,14 @@
             padding: 0 20px;
         }
 
-        /* Navigation */
+ /* Navigation */
         #navigation {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(10, 10, 15, 0.95);
+            background: rgba(10, 14, 26, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
         }
@@ -79,6 +79,7 @@
             gap: 8px;
             font-weight: 600;
             color: var(--text-primary);
+            text-decoration: none;
         }
 
         .nav-logo svg {
@@ -102,11 +103,17 @@
             cursor: pointer;
             transition: all 0.2s;
             font-size: 14px;
+            text-decoration: none;
         }
 
         .nav-item:hover {
             color: var(--text-primary);
             background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-item svg {
+            width: 16px;
+            height: 16px;
         }
 
         /* Hero Section */
